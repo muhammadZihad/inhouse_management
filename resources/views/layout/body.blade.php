@@ -4,13 +4,11 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="Content-Language" content="en">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
     <title>Analytics Dashboard - This is an example dashboard created using build-in elements and components.</title>
     <meta name="viewport"
         content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
-    <meta name="description" content="This is an example dashboard created using build-in elements and components.">
-    <meta name="msapplication-tap-highlight" content="no">
+
     <!--
     =========================================================
     * ArchitectUI HTML Theme Dashboard - v1.0.0
@@ -22,13 +20,15 @@
     * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
     -->
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/f2962bac2e.js"></script>
+    @yield('upperjs')
 </head>
 
 <body>
     <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
         <div class="app-header header-shadow">
             <div class="app-header__logo">
-                <div class="logo-src"></div>
+                <div class="logo-src">inHouse</div>
                 <div class="header__pane ml-auto">
                     <div>
                         <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
@@ -60,6 +60,9 @@
                 </span>
             </div>
             <div class="app-header__content">
+
+
+                {{-- Here is a searchbar and menu on top
                 <div class="app-header-left">
                     <div class="search-wrapper">
                         <div class="input-holder">
@@ -88,7 +91,9 @@
                             </a>
                         </li>
                     </ul>
-                </div>
+                </div> --}}
+
+
                 <div class="app-header-right">
                     <div class="header-btn-lg pr-0">
                         <div class="widget-content p-0">
@@ -99,8 +104,8 @@
                                     <div class="btn-group">
                                         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                             class="p-0 btn">
-                                            <img width="42" class="rounded-circle" src="assets/images/avatars/1.jpg"
-                                                alt="">
+                                            <img width="42" class="rounded-circle"
+                                                src="{{Gravatar::get(auth()->user()->email)}}" alt="">
                                             <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                         </a>
                                         <div tabindex="-1" role="menu" aria-hidden="true"
@@ -117,10 +122,10 @@
                                 </div>
                                 <div class="widget-content-left  ml-3 header-user-info">
                                     <div class="widget-heading">
-                                        Alina Mclourd
+                                        {{auth()->user()->name}}
                                     </div>
                                     <div class="widget-subheading">
-                                        VP People Manager
+                                        {{auth()->user()->designation->name}}
                                     </div>
                                 </div>
                             </div>
@@ -132,7 +137,10 @@
                 </div>
             </div>
         </div>
-        <div class="ui-theme-settings">
+
+
+        {{-- Here is the the style customizer --}}
+        {{-- <div class="ui-theme-settings">
             <button type="button" id="TooltipDemo" class="btn-open-options btn btn-warning">
                 <i class="fa fa-cog fa-w-16 fa-spin fa-2x"></i>
             </button>
@@ -500,7 +508,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
+
+
         <div class="app-main">
             <div class="app-sidebar sidebar-shadow">
                 <div class="app-header__logo">
@@ -538,68 +548,40 @@
                 <div class="scrollbar-sidebar">
                     <div class="app-sidebar__inner">
                         <ul class="vertical-nav-menu">
-                            <li class="app-sidebar__heading">Dashboards</li>
-                            <li>
-                                <a href="index.html" class="mm-active">
-                                    <i class="metismenu-icon pe-7s-rocket"></i>
-                                    Dashboard Example 1
-                                </a>
-                            </li>
-                            <li class="app-sidebar__heading">UI Components</li>
-                            <li>
-                                <a href="#">
-                                    <i class="metismenu-icon pe-7s-diamond"></i>
-                                    Elements
-                                    <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
-                                </a>
-                                <ul>
-                                    <li>
-                                        <a href="elements-buttons-standard.html">
-                                            <i class="metismenu-icon"></i>
-                                            Buttons
-                                        </a>
-                                    </li>
-
-                                    <li>
-                                        <a href="elements-cards.html">
-                                            <i class="metismenu-icon">
-                                            </i>Cards
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="elements-list-group.html">
-                                            <i class="metismenu-icon">
-                                            </i>List Groups
-                                        </a>
-                                    </li>
-
-                                </ul>
-                            </li>
-
-                            <li class="app-sidebar__heading">Widgets</li>
-                            <li>
-                                <a href="dashboard-boxes.html">
-                                    <i class="metismenu-icon pe-7s-display2"></i>
-                                    Dashboard Boxes
-                                </a>
-                            </li>
-                            <li class="app-sidebar__heading">Forms</li>
                             <li>
                                 <a href="forms-controls.html">
                                     <i class="metismenu-icon pe-7s-mouse">
-                                    </i>Forms Controls
+                                    </i>Dashboard
                                 </a>
                             </li>
                             <li>
-                                <a href="forms-layouts.html">
+                                <a href="{{route('employee')}}">
                                     <i class="metismenu-icon pe-7s-eyedropper">
-                                    </i>Forms Layouts
+                                    </i>Employees
                                 </a>
                             </li>
                             <li>
                                 <a href="forms-validation.html">
                                     <i class="metismenu-icon pe-7s-pendrive">
-                                    </i>Forms Validation
+                                    </i>Attendences
+                                </a>
+                            </li>
+                            <li>
+                                <a href="forms-validation.html">
+                                    <i class="metismenu-icon pe-7s-pendrive">
+                                    </i>Schedule
+                                </a>
+                            </li>
+                            <li>
+                                <a href="forms-validation.html">
+                                    <i class="metismenu-icon pe-7s-pendrive">
+                                    </i>Leave
+                                </a>
+                            </li>
+                            <li>
+                                <a href="forms-validation.html">
+                                    <i class="metismenu-icon pe-7s-pendrive">
+                                    </i>Users
                                 </a>
                             </li>
 
