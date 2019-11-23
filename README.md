@@ -14,10 +14,10 @@ This is an employee management system. This project is under development. It is 
 
 
 ## How to run
--** Create a mysql database "inhouse_db"
--``` php artisan migrate ```
--``` php artisan db:seed ```
--** Login and continue
+- ** Create a mysql database "inhouse_db"
+- ``` php artisan migrate ```
+- ``` php artisan db:seed ```
+- ** Login and continue
 - [Email "abc@gmail.com" Password "password"]
 
 
