@@ -18,6 +18,6 @@ This is an employee management system. This project is under development. It is 
 - ``` php artisan migrate ```
 - ``` php artisan db:seed ```
 - ** Login and continue
-- [Email "abc@gmail.com" Password "password"]
+- [ Email "abc@gmail.com" Password "password" ]
 
 
