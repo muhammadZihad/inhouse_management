@@ -4,12 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Designation extends Model
+class Day extends Model
 {
     //
     protected $fillable = ['name'];
-    public function users()
+    public function schedules()
     {
-        return $this->hasMany(User::class);
+        return $this->belongsToMany(Schedule::class);
     }
 }

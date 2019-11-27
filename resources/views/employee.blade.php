@@ -20,7 +20,7 @@
                         <tr>
                             <th class="text-center">#</th>
                             <th>Name</th>
-                            <th class="text-center">Email</th>
+                            <th class="text-center">Designation</th>
                             <th class="text-center">Status</th>
                             <th class="text-center">Actions</th>
                         </tr>
@@ -34,19 +34,19 @@
                                     <div class="widget-content-wrapper">
                                         <div class="widget-content-left mr-3">
                                             <div class="widget-content-left">
-                                                {{-- <img width="40" class="rounded-circle"
-                                                    src="{{Gravatar::get($item->email)}}" alt=""> --}}
+                                                <img width="40" class="rounded-circle"
+                                                    src="{{Gravatar::get($item->email)}}" alt="">
                                             </div>
                                         </div>
                                         <div class="widget-content-left flex2">
                                             <div class="widget-heading">{{$item->name}}</div>
-                                            <div class="widget-subheading opacity-7">{{$item->designation->name}}
+                                            <div class="widget-subheading opacity-7">{{$item->email}}
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </td>
-                            <td class="text-center">{{$item->email}}</td>
+                            <td class="text-center">{{$item->designation->name}}</td>
                             <td class="text-center">
                                 <div class="badge badge-warning">Pending</div>
                             </td>

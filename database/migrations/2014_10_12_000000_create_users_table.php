@@ -17,9 +17,16 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('email')->unique();
+            $table->boolean('isAdmin')->default(0);
+            $table->text('home_address')->nullable();
+            $table->text('national_id')->nullable();
+            $table->enum('gender', ['Male', 'Female'])->nullable();
+            $table->enum('type', ['Regular', 'Part-time'])->nullable();
+            $table->integer('department_id')->nullable();
             $table->integer('designation_id')->nullable();
-            $table->enum('role', ['Admin', 'Employee', 'Both'])->default('Admin');
-            $table->text('about')->nullable();
+            $table->integer('salary')->nullable();
+            $table->date('start_date')->nullable();
+            $table->date('d_o_b')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

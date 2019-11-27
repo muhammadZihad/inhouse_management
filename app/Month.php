@@ -4,12 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Designation extends Model
+class Month extends Model
 {
     //
     protected $fillable = ['name'];
-    public function users()
+    public function salaries()
     {
-        return $this->hasMany(User::class);
+        return $this->hasMany(Salary::class);
     }
 }
