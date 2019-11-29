@@ -8,17 +8,12 @@ class Schedule extends Model
 {
     //
     protected $fillable = [
-        'name',
-        'user_id',
-        'start_time',
-        'end_time',
-        'from',
-        'to'
+        'title', 'description', 'from_Date', 'to_Date'
     ];
 
-    public function user()
+    public function users()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsToMany('App\User');
     }
     public function days()
     {

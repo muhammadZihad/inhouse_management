@@ -65,7 +65,7 @@ class User extends Authenticatable
     }
     public function schedules()
     {
-        return $this->hasMany(Schedule::class);
+        return $this->belongsToMany('App\Schedule');
     }
     public function salaries()
     {

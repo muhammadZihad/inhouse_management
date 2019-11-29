@@ -19,4 +19,19 @@ Route::group(['middleware' => ['auth']], function () {
     });
     Route::get('/home', 'EmployeeController@index')->name('home');
     Route::get('/employee', 'EmployeeController@index')->name('employee');
+
+    Route::get('/schedules', [
+        'uses' => 'ScheduleController@index',
+        'as' => 'schedules'
+    ]);
+
+    Route::get('/schedule/add', [
+        'uses' => 'ScheduleController@create',
+        'as' => 'schedule.add'
+    ]);
+
+    Route::post('/schedule/store', [
+        'uses' => 'ScheduleController@store',
+        'as' => 'schedule.store'
+    ]);
 });

@@ -105,7 +105,7 @@
                                         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                             class="p-0 btn">
                                             <img width="42" class="rounded-circle"
-                                                src="{{Gravatar::get(auth()->user()->email)}}" alt="">
+                                                {{-- src="{{Gravatar::get(auth()->user()->email)}}" alt=""> --}} >
                                             <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                         </a>
                                         <div tabindex="-1" role="menu" aria-hidden="true"
@@ -572,8 +572,8 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="forms-validation.html">
-                                    <i class="metismenu-icon pe-7s-pendrive">
+                                <a href="{{route('schedules')}}">
+                                    <i class="fa fa-user">
                                     </i>Schedule
                                 </a>
                             </li>
