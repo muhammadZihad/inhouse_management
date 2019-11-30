@@ -36,44 +36,44 @@
                             <td>
                                 <div class="widget-content p-0">
                                     <div class="widget-content-wrapper">
-                                        {{-- <div class="widget-content-left mr-3">
+                                        <div class="widget-content-left mr-3">
                                             <div class="widget-content-left">
                                                 <img width="40" class="rounded-circle"
                                                     src="{{Gravatar::get($sal->email)}}" alt="">
-                                    </div>
-                                </div> --}}
-                                <div class="widget-content-left flex2">
-                                    <div class="widget-heading">{{$sal->user->name}}</div>
-                                    <div class="widget-subheading opacity-7">{{$sal->user->email}}
+                                            </div>
+                                        </div>
+                                        <div class="widget-content-left flex2">
+                                            <div class="widget-heading">{{$sal->user->name}}</div>
+                                            <div class="widget-subheading opacity-7">{{$sal->user->email}}
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                            </td>
+                            <td class="">{{$sal->user->designation->name}}</td>
+                            <td class="">{{$sal->month->name}}</td>
+                            <td class="">
+                                <div @if ($sal->status=="Pending")
+                                    class="badge badge-warning"
+                                    @elseif ($sal->status=="Due")
+                                    class="badge badge-danger"
+                                    @else
+                                    class="badge badge-success"
+                                    @endif >{{$sal->status}}</div>
+                            </td>
+                            <td class="">
+                                <a href="{{route('salary.edit',$sal->id)}}" type="button" id="PopoverCustomT-1"
+                                    class="btn btn-primary btn-sm">Pay</a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+            <div class="d-block text-center card-footer">
             </div>
         </div>
-        </td>
-        <td class="">{{$sal->user->designation->name}}</td>
-        <td class="">{{$sal->month->name}}</td>
-        <td class="">
-            <div @if ($sal->status=="Pending")
-                class="badge badge-warning"
-                @elseif ($sal->status=="Due")
-                class="badge badge-danger"
-                @else
-                class="badge badge-success"
-                @endif >{{$sal->status}}</div>
-        </td>
-        <td class="">
-            <a href="{{route('salary.edit',$sal->id)}}" type="button" id="PopoverCustomT-1"
-                class="btn btn-primary btn-sm">Pay</a>
-        </td>
-        </tr>
-        @endforeach
-        </tbody>
-        </table>
     </div>
-    <div class="d-block text-center card-footer">
-    </div>
-</div>
-</div>
 </div>
 
 
