@@ -1,8 +1,6 @@
 @extends('layout.body')
 
 @section('content')
-
-
 <div class="row">
     <div class="col-md-12">
         <div class="main-card mb-3 card">
@@ -20,9 +18,11 @@
                         <tr>
                             <th class="text-center">#</th>
                             <th>Name</th>
+                            <th class="text-center">Department</th>
                             <th class="text-center">Designation</th>
-                            <th class="text-center">Status</th>
-                            <th class="text-center">Actions</th>
+                            <th class="text-center">Type</th>
+                            <th class="text-center">Action</th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -34,8 +34,8 @@
                                     <div class="widget-content-wrapper">
                                         <div class="widget-content-left mr-3">
                                             <div class="widget-content-left">
-                                                <img width="40" class="rounded-circle"
-                                                    src="{{Gravatar::get($item->email)}}" alt="">
+                                                {{-- <img width="40" class="rounded-circle"
+                                                    src="{{Gravatar::get($item->email)}}" alt=""> --}}
                                             </div>
                                         </div>
                                         <div class="widget-content-left flex2">
@@ -46,13 +46,13 @@
                                     </div>
                                 </div>
                             </td>
+                            <td class="text-center">{{$item->department->name}}</td>
                             <td class="text-center">{{$item->designation->name}}</td>
                             <td class="text-center">
-                                <div class="badge badge-warning">Pending</div>
+                                <div class="badge badge-warning">{{$item->type}}</div>
                             </td>
                             <td class="text-center">
-                                <button type="button" id="PopoverCustomT-1"
-                                    class="btn btn-primary btn-sm">Details</button>
+                                <a href="{{route('profile',$item->id)}}" class="btn btn-primary btn-sm">Details</a>
                             </td>
                         </tr>
                         @endforeach
@@ -67,10 +67,8 @@
         </div>
     </div>
 </div>
-
-
-
 @endsection
+
 
 @section('upperjs')
 <script src="{{asset('js/sort.js')}}"></script>

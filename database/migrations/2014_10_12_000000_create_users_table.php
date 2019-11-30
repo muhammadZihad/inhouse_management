@@ -19,12 +19,13 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->boolean('isAdmin')->default(0);
             $table->text('home_address')->nullable();
+            $table->text('phone')->nullable();
             $table->text('national_id')->nullable();
-            $table->enum('gender', ['Male', 'Female'])->nullable();
-            $table->enum('type', ['Regular', 'Part-time'])->nullable();
+            $table->string('gender')->nullable();
+            $table->string('type')->nullable();
             $table->integer('department_id')->nullable();
             $table->integer('designation_id')->nullable();
-            $table->integer('salary')->nullable();
+            $table->integer('amount_id')->nullable();
             $table->date('start_date')->nullable();
             $table->date('d_o_b')->nullable();
             $table->timestamp('email_verified_at')->nullable();

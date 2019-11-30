@@ -17,6 +17,21 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/', function () {
         return view('dash');
     });
-    Route::get('/home', 'EmployeeController@index')->name('home');
+    Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/employee', 'EmployeeController@index')->name('employee');
+    Route::get('/profile/{id}', 'ProfileController@index')->name('profile');
+
+    Route::get('/schedules', [
+        'uses' => 'ScheduleController@index',
+        'as' => 'schedules'
+    ]);
+    Route::get('/schedule/add', [
+        'uses' => 'ScheduleController@create',
+        'as' => 'schedule.add'
+    ]);
+    Route::post('/schedule/store', [
+        'uses' => 'ScheduleController@store',
+        'as' => 'schedule.store'
+    ]);
+    Route::resource('salary', 'SalaryController');
 });

@@ -554,7 +554,7 @@
                     <div class="app-sidebar__inner">
                         <ul class="vertical-nav-menu">
                             <li>
-                                <a href="forms-controls.html">
+                                <a href="{{route('home')}}">
                                     <i class="metismenu-icon pe-7s-mouse">
                                     </i>Dashboard
                                 </a>
@@ -572,7 +572,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="forms-validation.html">
+                                <a href="{{route('schedules')}}">
                                     <i class="metismenu-icon pe-7s-pendrive">
                                     </i>Schedule
                                 </a>

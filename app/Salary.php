@@ -10,6 +10,7 @@ class Salary extends Model
     protected $fillable = [
         'name',
         'month_id',
+        'amount_id',
         'status',
         'user_id'
     ];
@@ -17,7 +18,10 @@ class Salary extends Model
     {
         return $this->belongsTo(User::class);
     }
-
+    public function amount()
+    {
+        return $this->belongsTo(Amount::class);
+    }
     public function month()
     {
         return $this->belongsTo(Month::class);

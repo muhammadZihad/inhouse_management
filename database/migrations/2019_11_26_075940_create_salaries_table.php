@@ -16,8 +16,9 @@ class CreateSalariesTable extends Migration
         Schema::create('salaries', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('user_id');
+            $table->integer('amount_id');
             $table->integer('month_id');
-            $table->enum('status', ['Pending', 'Paid', 'Due'])->default('Pending');
+            $table->string('status');
             $table->timestamps();
         });
     }

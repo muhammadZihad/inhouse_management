@@ -24,6 +24,7 @@ class User extends Authenticatable
         'national_id',
         'gender',
         'type',
+        'amount_id',
         'department_id',
         'designation_id',
         'salary',
@@ -50,7 +51,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-
     public function designation()
     {
         return $this->belongsTo(Designation::class);
@@ -65,10 +65,14 @@ class User extends Authenticatable
     }
     public function schedules()
     {
-        return $this->hasMany(Schedule::class);
+        return $this->belongsToMany(Schedule::class);
     }
     public function salaries()
     {
         return $this->hasMany(Salary::class);
+    }
+    public function amount()
+    {
+        return $this->belongsTo(Amount::class);
     }
 }
