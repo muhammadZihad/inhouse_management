@@ -572,6 +572,12 @@
                                 </a>
                             </li>
                             <li>
+                                <a href="{{route('salary.index')}}">
+                                    <i class="metismenu-icon pe-7s-pendrive">
+                                    </i>Salary
+                                </a>
+                            </li>
+                            <li>
                                 <a href="{{route('schedules')}}">
                                     <i class="metismenu-icon pe-7s-pendrive">
                                     </i>Schedule

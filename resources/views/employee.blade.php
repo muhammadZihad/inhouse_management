@@ -26,9 +26,12 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @php
+                        $i=1;
+                        @endphp
                         @foreach ($emp as $item)
                         <tr>
-                            <td class="text-center text-muted">#{{$item->id}}</td>
+                            <td class="text-center text-muted">#{{$i++}}</td>
                             <td>
                                 <div class="widget-content p-0">
                                     <div class="widget-content-wrapper">

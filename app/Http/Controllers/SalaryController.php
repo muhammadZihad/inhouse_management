@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Salary;
 use Illuminate\Http\Request;
 
 class SalaryController extends Controller
@@ -13,7 +14,7 @@ class SalaryController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.salary.salary')->with('sals', Salary::all());
     }
 
     /**
@@ -54,9 +55,9 @@ class SalaryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Salary $salary)
     {
-        //
+        return view('admin.salary.update')->with('user', $salary);
     }
 
     /**
@@ -66,9 +67,12 @@ class SalaryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Salary $salary)
     {
         //
+        $salary->status = $request->status;
+        $salary->save();
+        return redirect(route('salary.index'));
     }
 
     /**
