@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Month;
 use App\Salary;
+use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class SalaryController extends Controller
@@ -15,6 +18,37 @@ class SalaryController extends Controller
     public function index()
     {
         return view('admin.salary.salary')->with('sals', Salary::all());
+    }
+    public function index_my($id)
+    {
+        return view('admin.salary.salary')->with('sals', User::find($id)->salaries);
+    }
+
+    public function push_sal($id)
+    {
+        $user = User::find($id);
+        $prev = $user->salaries;
+        $bool1 = false;
+        $bool2 = false;
+        $mon = Carbon::now()->format('F');
+        if ($prev->last()) {
+            $prev_mon = $prev->last()->month->name;
+            if ($prev_mon != $mon) {
+                $bool1 = true;
+            }
+        } else {
+            $bool2 = true;
+        }
+        if ($bool1 || $bool2) {
+            $mon_id = Month::where('name', 'like', $mon)->first()->id;
+            Salary::create([
+                'user_id' => $id,
+                'amount_id' => $user->amount_id,
+                'month_id' => $mon_id,
+                'status' => 'Pending'
+            ]);
+        }
+        return redirect()->back();
     }
 
     /**
