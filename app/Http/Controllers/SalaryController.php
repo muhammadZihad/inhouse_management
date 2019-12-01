@@ -19,9 +19,9 @@ class SalaryController extends Controller
     {
         return view('admin.salary.salary')->with('sals', Salary::all());
     }
-    public function index_my($id)
+    public function index_my()
     {
-        return view('admin.salary.salary')->with('sals', User::find($id)->salaries);
+        return view('admin.salary.salary')->with('sals', auth()->user()->salaries);
     }
 
     public function push_sal($id)

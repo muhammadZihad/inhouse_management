@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Department;
 use Illuminate\Http\Request;
 
 class DepController extends Controller
@@ -13,7 +14,7 @@ class DepController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.extra.dep')->with('list', Department::all());
     }
 
     /**
@@ -34,7 +35,10 @@ class DepController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Department::create([
+            'name' => $request->name
+        ]);
+        return redirect()->back();
     }
 
     /**
@@ -68,7 +72,10 @@ class DepController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $des = Department::find($id);
+        $des->name = $request->name;
+        $des->save();
+        return redirect(route('dep.index'));
     }
 
     /**
@@ -79,6 +86,8 @@ class DepController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $dep = Department::find($id);
+        $dep->delete();
+        return redirect()->back();
     }
 }

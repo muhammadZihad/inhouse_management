@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Designation;
 use Illuminate\Http\Request;
 
 class DesController extends Controller
@@ -14,6 +15,7 @@ class DesController extends Controller
     public function index()
     {
         //
+        return view('admin.extra.dep')->with('list', Designation::all());
     }
 
     /**
@@ -34,7 +36,10 @@ class DesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Designation::create([
+            'name' => $request->name
+        ]);
+        return redirect()->back();
     }
 
     /**
@@ -68,7 +73,10 @@ class DesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $des = Designation::find($id);
+        $des->name = $request->name;
+        $des->save();
+        return redirect()->back();
     }
 
     /**
@@ -79,6 +87,8 @@ class DesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $des = Designation::find($id);
+        $des->delete();
+        return redirect()->back();
     }
 }

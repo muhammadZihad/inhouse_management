@@ -10,7 +10,6 @@
                 All Salary Records
                 @else
                 My Salary Records
-                @endif
                 <div class="btn-actions-pane-right">
                     {{-- <a href="{{route('schedule.add')}}" class="btn btn-success">+Add Schedule</a> --}}
                     <div role="group" class="btn-group-sm btn-group">
@@ -18,6 +17,8 @@
                             Salary</a>
                     </div>
                 </div>
+                @endif
+
             </div>
             <div class="table-responsive">
                 <table class="align-middle mb-0 table table-borderless table-striped table-hover sortable">

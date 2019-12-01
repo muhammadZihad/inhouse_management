@@ -573,7 +573,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('salary.index_my',auth()->user()->id)}}">
+                                <a href="{{route('salary.index_my')}}">
                                     <i class="metismenu-icon pe-7s-pendrive">
                                     </i>My Salary
                                 </a>
@@ -620,13 +620,13 @@
                                 </a>
                                 <ul>
                                     <li>
-                                        <a href="elements-buttons-standard.html">
+                                        <a href="{{route('dep.index')}}">
                                             <i class="metismenu-icon"></i>
                                             Department
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="elements-dropdowns.html">
+                                        <a href="{{route('des.index')}}">
                                             <i class="metismenu-icon">
                                             </i>Designation
                                         </a>
@@ -692,6 +692,7 @@
             <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
         </div>
     </div>
+    @yield('bottom')
     <script src="{{ asset('js/main.js') }}"></script>
 </body>
 

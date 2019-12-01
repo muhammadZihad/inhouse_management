@@ -15,7 +15,7 @@ class ScheduleController extends Controller
      */
     public function index()
     {
-        return view('admin.schedule.schedule');
+        return view('admin.schedule.schedule')->with('list', Schedule::all());
     }
     /**
      * Show the form for creating a new resource.
