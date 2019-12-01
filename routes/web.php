@@ -34,6 +34,7 @@ Route::group(['middleware' => ['auth']], function () {
         'as' => 'schedule.store'
     ]);
     Route::resource('salary', 'SalaryController');
+    Route::resource('attendence', 'AttendenceController');
     Route::get('mysalary/{id}', 'SalaryController@index_my')->name('salary.index_my');
     Route::get('push/{id}', 'SalaryController@push_sal')->name('salary.pusher');
 });

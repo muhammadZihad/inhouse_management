@@ -29,11 +29,6 @@ class AppServiceProvider extends ServiceProvider
         Schema::defaultStringLength(191);
         Blade::if('admin', function () {
             return auth()->check() && auth()->user()->isAdmin == 1;
-
-            // admin is just a directive name that i want to create
-            // return korbe authentication check korbe login ache kina
-            // && auth () jodi login means user hoy ebong er role ID 1 kina 
-
         });
     }
 }
