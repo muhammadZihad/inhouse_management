@@ -55,7 +55,7 @@
                                 <div class="badge badge-warning">{{$item->type}}</div>
                             </td>
                             <td class="text-center">
-                                <a href="{{route('profile',$item->id)}}" class="btn btn-primary btn-sm">Details</a>
+                                <a href="" class="btn btn-primary btn-sm">Details</a>
                             </td>
                         </tr>
                         @endforeach

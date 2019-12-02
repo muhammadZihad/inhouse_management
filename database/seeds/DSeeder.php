@@ -74,6 +74,18 @@ class DSeeder extends Seeder
             ],
             [
                 'name' => 'August',
+            ],
+            [
+                'name' => 'September',
+            ],
+            [
+                'name' => 'October',
+            ],
+            [
+                'name' => 'November',
+            ],
+            [
+                'name' => 'December',
             ]
         ];
         foreach ($month as $d) {
@@ -114,6 +126,9 @@ class DSeeder extends Seeder
             ],
             [
                 'amount' => 16000
+            ],
+            [
+                'amount' => 18000
             ]
         ];
         foreach ($amount as $d) {

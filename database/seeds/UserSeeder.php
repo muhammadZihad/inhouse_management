@@ -20,6 +20,8 @@ class UserSeeder extends Seeder
                 'designation_id' => 2,
                 'department_id' => 1,
                 'amount_id' => 1,
+                'type' => 'Permanent',
+                'gender' => 'Male'
             ],
             [
                 'name' => 'Shadesh Saha',

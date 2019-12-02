@@ -17,6 +17,8 @@ class CreateSchedulesTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->string('description');
+            $table->string('status');
+            $table->integer('leader_id');
             $table->date('from_Date');
             $table->date('to_Date');
             $table->timestamps();

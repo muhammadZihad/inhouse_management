@@ -561,7 +561,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('employee')}}">
+                                <a href="{{route('employee.index')}}">
                                     <i class="metismenu-icon pe-7s-eyedropper">
                                     </i>Employees
                                 </a>
@@ -579,9 +579,9 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="{{route('schedules')}}">
+                                <a href="{{route('mysched')}}">
                                     <i class="metismenu-icon pe-7s-pendrive">
-                                    </i>Schedule
+                                    </i>My Schedule
                                 </a>
                             </li>
                             <li>
@@ -611,7 +611,12 @@
                                     </i>Salary
                                 </a>
                             </li>
-
+                            <li>
+                                <a href="{{route('schedule.index')}}">
+                                    <i class="metismenu-icon pe-7s-pendrive">
+                                    </i>Schedule
+                                </a>
+                            </li>
                             <li>
                                 <a href="#">
                                     <i class="metismenu-icon pe-7s-diamond"></i>

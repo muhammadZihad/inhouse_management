@@ -9,7 +9,7 @@ class Schedule extends Model
     //
 
     protected $fillable = [
-        'title', 'description', 'from_Date', 'to_Date'
+        'title', 'description', 'from_Date', 'to_Date', 'status', 'leader_id'
     ];
     public function users()
     {
@@ -18,5 +18,9 @@ class Schedule extends Model
     public function days()
     {
         return $this->belongsToMany(Day::class);
+    }
+    public function hasUser($id)
+    {
+        return in_array($id, $this->users->pluck('id')->toArray());
     }
 }
