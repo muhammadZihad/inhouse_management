@@ -10,9 +10,6 @@
                 @admin
                 <div class="btn-actions-pane-right">
                     <a href="{{route('schedule.create')}}" class="btn btn-success">+Add Schedule</a>
-                    <div role="group" class="btn-group-sm btn-group">
-                        <button class="active btn btn-focus">Sort By</button>
-                    </div>
                 </div>
                 @endadmin
             </div>

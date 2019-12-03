@@ -33,12 +33,18 @@
                         <div class="form-group">
                             <label for="salary">Salary</label>
                             <select name="salary" id="" class="form-control">
+                                @if (auth()->user()->isAdmin || auth()->user()->id==$item->id)
                                 @foreach ($sal as $i)
                                 <option @if ($item->amount_id==$i->id)
                                     selected
                                     @endif
                                     value="{{$i->id}}">{{$i->amount}}</option>
                                 @endforeach
+                                @else
+                                <option selected value="lol">You are not authorized</option>
+
+                                @endif
+
                             </select>
                         </div>
                     </div>
@@ -125,6 +131,22 @@
                         <div class="form-group">
                             <label for="std">Start Date</label>
                             <input type="date" class="form-control" name="std" value="{{$item->start_date}}"></input>
+                        </div>
+                    </div>
+
+
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label for="gender">Is Admin ?</label>
+                            <select class="form-control" name="admin" id="">
+                                <option @if ($item->isadmin==1)
+                                    selected
+                                    @endif
+                                    value=1>Yes</option>
+                                <option @if ($item->isAdmin==0)
+                                    selected
+                                    @endif value=0>No</option>
+                            </select>
                         </div>
                     </div>
 
