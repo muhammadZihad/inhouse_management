@@ -104,13 +104,12 @@
                                     <div class="btn-group">
                                         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                             class="p-0 btn">
-                                            {{-- <img width="42" class="rounded-circle"
-                                                src="{{Gravatar::get(auth()->user()->email)}}" alt=""> --}}
+                                            <img width="42" class="rounded-circle" src="" alt="">
                                             <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                         </a>
                                         <div tabindex="-1" role="menu" aria-hidden="true"
                                             class="dropdown-menu dropdown-menu-right">
-                                            <a href="#" class="dropdown-item">Profile</a>
+                                            <a href="{{route('mypro')}}" class="dropdown-item">Profile</a>
                                             <a href="#" class="dropdown-item">Settings</a>
                                             <div tabindex="-1" class="dropdown-divider"></div>
                                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
@@ -584,21 +583,23 @@
                                     </i>My Schedule
                                 </a>
                             </li>
-                            <li>
-                                <a href="forms-validation.html">
-                                    <i class="metismenu-icon pe-7s-pendrive">
-                                    </i>Leave
-                                </a>
-                            </li>
+
+
+                            @admin
+                            <li class="app-sidebar__heading">Admin Menu</li>
                             <li>
                                 <a href="forms-validation.html">
                                     <i class="metismenu-icon pe-7s-pendrive">
                                     </i>Users
                                 </a>
                             </li>
+                            <li>
+                                <a href="forms-validation.html">
+                                    <i class="metismenu-icon pe-7s-pendrive">
+                                    </i>Leave
+                                </a>
+                            </li>
 
-                            @admin
-                            <li class="app-sidebar__heading">Admin Menu</li>
                             <li>
                                 <a href="forms-validation.html">
                                     <i class="metismenu-icon pe-7s-pendrive">

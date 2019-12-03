@@ -35,12 +35,7 @@
                             <td>
                                 <div class="widget-content p-0">
                                     <div class="widget-content-wrapper">
-                                        <div class="widget-content-left mr-3">
-                                            <div class="widget-content-left">
-                                                {{-- <img width="40" class="rounded-circle"
-                                                    src="{{Gravatar::get($item->email)}}" alt=""> --}}
-                                            </div>
-                                        </div>
+
                                         <div class="widget-content-left flex2">
                                             <div class="widget-heading">{{$item->name}}</div>
                                             <div class="widget-subheading opacity-7">{{$item->email}}
@@ -55,7 +50,7 @@
                                 <div class="badge badge-warning">{{$item->type}}</div>
                             </td>
                             <td class="text-center">
-                                <a href="" class="btn btn-primary btn-sm">Details</a>
+                                <a href="{{route('profile.show',$item->id)}}" class="btn btn-primary btn-sm">Details</a>
                             </td>
                         </tr>
                         @endforeach
