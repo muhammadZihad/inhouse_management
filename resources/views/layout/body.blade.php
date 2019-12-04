@@ -601,7 +601,7 @@
                             </li>
 
                             <li>
-                                <a href="forms-validation.html">
+                                <a href="{{route('attendence.index')}}">
                                     <i class="metismenu-icon pe-7s-pendrive">
                                     </i>Attendences
                                 </a>

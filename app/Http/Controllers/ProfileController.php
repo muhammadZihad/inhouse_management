@@ -22,8 +22,9 @@ class ProfileController extends Controller
     }
     public function myPro()
     {
+
         return view('admin.profile.single')
-            ->with('item', User::find(auth()->user())->first())
+            ->with('item', User::find(auth()->user()->id))
             ->with('des', Designation::all())
             ->with('sal', Amount::all())
             ->with('dep', Department::all());
@@ -114,7 +115,9 @@ class ProfileController extends Controller
         $user->national_id = $request->id;
         $user->gender = $request->gender;
         $user->type = $request->type;
-        $user->isAdmin = $request->admin;
+        if (auth()->user()->isAdmin) {
+            $user->isAdmin = $request->admin;
+        }
         $user->d_o_b = $request->dob;
         $user->amount_id = $request->salary;
         $user->start_date = $request->std;
