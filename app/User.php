@@ -24,6 +24,7 @@ class User extends Authenticatable
         'national_id',
         'gender',
         'type',
+        'phone',
         'image',
         'amount_id',
         'department_id',

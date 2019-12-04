@@ -50,28 +50,15 @@ class ProfileController extends Controller
      */
     public function store(Request $request)
     {
-
-        // $user->name = $request->name;
-        // $user->email = $request->email;
-        // $user->home_address = $request->address;
-        // $user->phone = $request->phone;
-        // $user->national_id = $request->id;
-        // $user->gender = $request->gender;
-        // $user->type = $request->type;
-        // $user->isAdmin = $request->admin;
-        // $user->d_o_b = $request->dob;
-        // $user->amount_id = $request->salary;
-        // $user->start_date = $request->std;
-        // $user->department_id = $request->department;
-        // $user->designation_id = $request->designation;
-
         $image = $request->image->store('profile');
         User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'home_address' => $request->address,
             'phone' => $request->phone,
+            'home_address' => $request->address,
+            'gender' => $request->gender,
             'national_id' => $request->id,
+            'type' => $request->type,
             'password' => bcrypt('password'),
             'isAdmin' => $request->admin,
             'd_o_b' => $request->dob,
