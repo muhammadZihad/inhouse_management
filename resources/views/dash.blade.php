@@ -47,11 +47,10 @@
             <div class="widget-content-outer">
                 <div class="widget-content-wrapper">
                     <div class="widget-content-left">
-                        <div class="widget-heading">Total Orders</div>
-                        <div class="widget-subheading">Last year expenses</div>
+                        <div class="widget-heading">Total Employee</div>
                     </div>
                     <div class="widget-content-right">
-                        <div class="widget-numbers text-success">1896</div>
+                        <div class="widget-numbers text-success">{{$emp}}</div>
                     </div>
                 </div>
             </div>
@@ -62,11 +61,10 @@
             <div class="widget-content-outer">
                 <div class="widget-content-wrapper">
                     <div class="widget-content-left">
-                        <div class="widget-heading">Products Sold</div>
-                        <div class="widget-subheading">Revenue streams</div>
+                        <div class="widget-heading">Total Projects Running</div>
                     </div>
                     <div class="widget-content-right">
-                        <div class="widget-numbers text-warning">$3M</div>
+                        <div class="widget-numbers text-warning">{{$sch}}</div>
                     </div>
                 </div>
             </div>
@@ -76,12 +74,15 @@
         <div class="card mb-3 widget-content">
             <div class="widget-content-outer">
                 <div class="widget-content-wrapper">
+
                     <div class="widget-content-left">
-                        <div class="widget-heading">Followers</div>
-                        <div class="widget-subheading">People Interested</div>
+                        <div class="widget-heading">Want a leave ?</div>
                     </div>
                     <div class="widget-content-right">
-                        <div class="widget-numbers text-danger">45,9%</div>
+                        <div class="widget-numbers text-danger"><button type="button"
+                                class="btn mr-2 mb-2 btn-primary clk" data-toggle="modal" data-target="#exampleModal">
+                                Click
+                            </button></div>
                     </div>
                 </div>
             </div>
@@ -135,6 +136,7 @@
                         @php
                         $i=1;
                         @endphp
+                        @if (auth()->user()->attendences->sortByDesc('date')->take(7))
                         @foreach (auth()->user()->attendences->sortByDesc('date')->take(7) as $item)
                         <tr>
                             <td class="text-center text-muted">#{{$i++}}</td>
@@ -158,6 +160,8 @@
                             </td>
                         </tr>
                         @endforeach
+                        @endif
+
 
 
                     </tbody>
@@ -189,9 +193,8 @@
                         @php
                         $i=1;
                         @endphp
+                        @if (auth()->user()->schedules->take(5))
                         @foreach (auth()->user()->schedules->take(5) as $item)
-
-                        @endforeach
                         <tr>
                             <td class="text-center text-muted">#{{$i++}}</td>
                             <td>
@@ -212,6 +215,10 @@
                                     class="btn btn-primary btn-sm">Details</button>
                             </td>
                         </tr>
+                        @endforeach
+                        @endif
+
+
 
                     </tbody>
                 </table>
@@ -221,6 +228,42 @@
                         class="pe-7s-trash btn-icon-wrapper"> </i></button>
                 <button class="btn-wide btn btn-success">Save</button>
             </div>
+        </div>
+    </div>
+</div>
+
+
+@endsection
+
+@section('underjs')
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Request for Leave</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="{{route('leave.store')}}" method="post">
+                @csrf
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="date">Leave date</label>
+                        <input type="date" name="date" id="" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="msg">Messege</label>
+                        <textarea name="msg" id="" rows="2" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-success">Send</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

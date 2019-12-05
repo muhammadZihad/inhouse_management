@@ -111,7 +111,7 @@ class ScheduleController extends Controller
             $schedule->users()->sync($request->users);
         }
 
-        return redirect(route('mesched'));
+        return redirect(route('mysched'));
     }
     /**
      * Remove the specified resource from storage.

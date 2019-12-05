@@ -77,4 +77,8 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Amount::class);
     }
+    public function leaves()
+    {
+        return $this->hasMany(Leave::class);
+    }
 }

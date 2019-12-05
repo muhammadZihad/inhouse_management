@@ -594,7 +594,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="forms-validation.html">
+                                <a href="{{route('leave.index')}}">
                                     <i class="metismenu-icon pe-7s-pendrive">
                                     </i>Leave
                                 </a>
@@ -700,6 +700,7 @@
     </div>
     @yield('bottom')
     <script src="{{ asset('js/main.js') }}"></script>
+    @yield('underjs')
 </body>
 
 </html>

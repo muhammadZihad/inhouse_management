@@ -2,14 +2,13 @@
 Auth::routes();
 
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('/', function () {
-        return view('dash');
-    });
+    Route::get('/', 'HomeController@index');
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/myschedule', 'ScheduleController@mySched')->name('mysched');
     Route::get('/myprofile', 'ProfileController@myPro')->name('mypro');
     Route::resource('schedule', 'ScheduleController');
     Route::resource('employee', 'EmployeeController');
+    Route::resource('leave', 'LeaveController');
     Route::resource('salary', 'SalaryController');
     Route::resource('attendence', 'AttendenceController');
     Route::get('mysalary/', 'SalaryController@index_my')->name('salary.index_my');
