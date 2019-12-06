@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Attendence;
-use Carbon\Carbon;
+use App\Amount;
 use Illuminate\Http\Request;
 
-class AttendenceController extends Controller
+class SalController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,7 @@ class AttendenceController extends Controller
      */
     public function index()
     {
-        //
-        return view('admin.attendence.att')->with('list', Attendence::all()->sortBy('date'));
+        return view('admin.extra.sal')->with('list', Amount::all());
     }
 
     /**
@@ -37,19 +35,10 @@ class AttendenceController extends Controller
      */
     public function store(Request $request)
     {
-        $carbon = new Carbon('today 10am', '+6:00');
-        if ($carbon >= Carbon::now('+6:00')) {
-            $status = 'on time ';
-        } else {
-            $status = 'late ';
-        }
-        Attendence::create([
-            'user_id' => auth()->user()->id,
-            'date' => Carbon::now('+6:00')->toDateString(),
-            'time_in' => Carbon::now('+6:00')->toTimeString(),
-            'status' => $status
+        Amount::create([
+            'amount' => $request->amount
         ]);
-        return redirect(route('home'));
+        return redirect()->back();
     }
 
     /**
@@ -60,7 +49,7 @@ class AttendenceController extends Controller
      */
     public function show($id)
     {
-        return view('admin.attendence.myatt')->with('list', Attendence::where('user_id', $id)->get());
+        //
     }
 
     /**
@@ -84,17 +73,6 @@ class AttendenceController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $att = Attendence::where('user_id', $id)->where('date', Carbon::now('+6:00')->toDateString())->first();
-
-        $carbon = new Carbon('today 6pm', '+6:00');
-        if ($carbon <= Carbon::now('+6:00')) {
-            $att->status = $att->status . '/ after time';
-        } else {
-            $att->status = $att->status . '/ early';
-        }
-        $att->time_out = Carbon::now('+6:00')->toTimeString();
-        $att->save();
-        return redirect(route('home'));
     }
 
     /**
@@ -105,6 +83,8 @@ class AttendenceController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $sal = Amount::find($id);
+        $sal->delete();
+        return redirect()->back();
     }
 }

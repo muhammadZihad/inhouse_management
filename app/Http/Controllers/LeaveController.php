@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Attendence;
 use App\Leave;
 use App\User;
 use Carbon\Carbon;
@@ -55,9 +56,7 @@ class LeaveController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
-    }
+    { }
 
     /**
      * Show the form for editing the specified resource.

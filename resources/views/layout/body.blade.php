@@ -566,7 +566,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="forms-validation.html">
+                                <a href="{{route('attendence.show',auth()->user()->id)}}">
                                     <i class="metismenu-icon pe-7s-pendrive">
                                     </i>My Attendences
                                 </a>
@@ -638,7 +638,7 @@
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="elements-icons.html">
+                                        <a href="{{route('amount.index')}}">
                                             <i class="metismenu-icon">
                                             </i>Common Salary
                                         </a>
